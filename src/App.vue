@@ -9,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      sss: 'aaaddd'
+      branch: "master"
     }
   }
 }
