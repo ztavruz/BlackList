@@ -8,7 +8,8 @@
 export default {
   data () {
     return {
-      ddd:"dddaaa"
+      ddd:"dddaaa",
+      aaa: "adadada"
     }
   }
 }
