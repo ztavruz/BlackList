@@ -1,6 +1,8 @@
 <template>
   <div>
-        <h1>About </h1>
+    <v-footer :fixed="true" app >
+        <span>BlackList &copy;2019</span>
+    </v-footer>
   </div>
 </template>
 

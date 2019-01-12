@@ -1,23 +1,38 @@
 <template>
-  <v-app>
+  <div>
+      <v-navigation-drawer absolute temporary v-model="drawer" class="need-hide" >
+          <v-list>
+              <v-list-tile v-for="(item, i) in menuItems" :key="`nawdrawer${i}`" >
+                  <v-list-tile-action>
+                      <v-icon v-html="item.icon" ></v-icon>
+                  </v-list-tile-action>
+                  <v-list-tile-content>
+                    <v-list-tile-title v-text="item.title" ></v-list-tile-title>
+                  </v-list-tile-content>
+              </v-list-tile>
+          </v-list>
+      </v-navigation-drawer>
       <v-toolbar app dark class="primar" >
-          <v-toolbar-title v-text="'BlackList'" ></v-toolbar-title>
+          <v-toolbar-side-icon @click.stop="drawer = !drawer" class="need-hide" ></v-toolbar-side-icon>
+          <router-link to="/" tag="span" style="cursor:pointer">
+            <v-toolbar-title v-text="'BlackList'" ></v-toolbar-title>
+          </router-link>
           <v-spacer></v-spacer>
-          <v-toolbar-items>
+          <v-toolbar-items class="hidden-sm-and-dowm need-down">
             <v-btn v-for="(item, i) in menuItems " class="" flat :key="`menuitem${i}`" :to="item.route">
                <v-icon v-html="item.icon" ></v-icon>  
                {{item.title}}
             </v-btn>
           </v-toolbar-items>
       </v-toolbar>
-  </v-app>
+  </div>
 </template>
 
 <script>
 export default {
   data () {
     return {
-      
+        drawer: false
     }
   },
   computed:{
@@ -30,7 +45,7 @@ export default {
               },
               {
                   icon: 'extension',
-                  title: 'Учит слова',
+                  title: 'Учить слова',
                   route: '/words'
               },
               {
@@ -61,7 +76,14 @@ export default {
 </script>
 
 <style scoped>
-  .primar{
-      
-  }
+@media (min-width:900px) and (max-width:2560px) {
+   .need-hide{
+       display:none;
+   }
+}
+@media (min-width:100px) and (max-width:900px) {
+   .need-down{
+       display: none;
+   }
+}
 </style>

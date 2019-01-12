@@ -1,13 +1,17 @@
 <template>
-  <div id="app">
-    <v-appheader></v-appheader>
-    <v-home></v-home>
-  </div>
+  <v-app>
+    <v-header></v-header>
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+    <v-footer></v-footer>
+  </v-app>
 </template>
 
 <script>
 import Home from './views/Home.vue'
-import AppHeader from './components/AppHeader.vue'
+import Header from './components/Header.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'app',  
@@ -18,7 +22,8 @@ export default {
   },
   components:{
     'v-home': Home,
-    'v-appheader': AppHeader
+    'v-header': Header,
+    'v-footer': Footer
   }
 }
 </script>
